@@ -1,38 +1,18 @@
 import Fib from './fib'
 describe('fibonacci test', () => {
-    it('when 5 return 5', () => {
-        //arrange
-        const input = 5;
-        const expected = 5;
-
-        //act
-        const actual = Fib(5);
-        
-        //assert
-        expect(actual).toBe(expected);
-    }),
-    it('when 6 return 8', () => {
-        //arrange
-        const input = 6;
-        const expected = 8;
-
-        //act
-        const actual = Fib(6);
-        
-        //assert
-        expect(actual).toBe(expected);
-
-    }),
-    it('when 0 return 0', () => {
-        //arrange
-        const input = 0;
-        const expected = 0;
-
-        //act
-        const actual = Fib(0);
-        
-        //assert
-        expect(actual).toBe(expected);
-
+    const testCases = [
+        {input: 5, expected: 5},
+        {input: 6, expected: 8},
+        {input: 0, expected: 0},
+        {input: 100, expected: 354224848179262000000},
+    ]
+    testCases.map(tc => {
+        it(`When ${tc.input} return ${tc.expected}`, () => {    
+            //act
+            const actual = Fib(tc.input);
+            
+            //assert
+            expect(actual).toBe(tc.expected);
+        })
     })
 })
